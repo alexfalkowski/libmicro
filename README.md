@@ -1,2 +1,3 @@
-# c-service
-Building microservices in C
+# C Service
+
+Building microservices in C.
