@@ -53,3 +53,7 @@ dkms.conf
 
 # IDE
 .vscode
+
+# Docs
+html/
+latex/

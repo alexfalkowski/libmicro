@@ -23,3 +23,6 @@ clean:
 	rm -f *.o *.a
 
 lib: clean compile link
+
+docs:
+	doxygen micro
