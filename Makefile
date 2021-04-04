@@ -1,3 +1,6 @@
+CFLAGS=-I/usr/local/opt/openssl/include -Wall -Wextra -Werror -pedantic -O3
+SRC=$(shell find . -name "*.c")
+
 clang-format:
 	find . -name "*.c" -o -name "*.h" | xargs clang-format -style=google --dry-run --Werror
 
@@ -10,3 +13,16 @@ format:
 	find . -name "*.c" -o -name "*.h" | xargs clang-format -style=google --Werror -i
 
 verify: lint
+
+compile:
+	gcc $(CFLAGS) -o libmicro.o -c $(SRC)
+
+link:
+	ar -cq libmicro.a *.o
+clean:
+	rm -f *.o *.a
+
+lib: clean compile link
+
+docs:
+	doxygen micro
